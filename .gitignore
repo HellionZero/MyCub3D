@@ -1,0 +1,10 @@
+./libs/MLX42
+./libs/MLX42/build
+./libs/MLX42/build/CMakeFiles
+./libs/MLX42/build/CMakeFiles/MLX42.dir
+./libs/MLX42/build/CMakeFiles/MLX42.dir/src
+./libs/MLX42/build/CMakeFiles/MLX42.dir/src/MLX42.c.o
+./libs/MLX42/build/CMakeFiles/MLX42.dir/src/MLX42_Input.c.o
+./libs/MLX42/build/CMakeFiles/MLX42.dir/src/MLX42_Math.c.o
+./libs/MLX42/build/CMakeFiles/MLX42.dir/src/MLX42_OpenGL.c.o
+./libs/MLX42/build/CMakeFiles/MLX42.dir/src/MLX42_Shader
