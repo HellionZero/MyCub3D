@@ -6,51 +6,35 @@
 /*   By: lsarraci <lsarraci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 19:10:26 by lsarraci          #+#    #+#             */
-/*   Updated: 2026/01/29 19:22:55 by lsarraci         ###   ########.fr       */
+/*   Updated: 2026/02/06 15:43:10 by lsarraci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub.h"
 
-int	key_press_hook(mlx_key_data_t keydata, void *param)
+void	key_event_handler(mlx_key_data_t keydata, void *param)
 {
-	return (0);
-}
+	t_game *game;
 
-int	key_release_hook(mlx_key_data_t keydata, void *param)
-{
-	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_RELEASE)
+	game = (t_game *)param;
+	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
 	{
-		mlx_t *mlx;
-
-		mlx = (mlx_t *)param;
-		mlx_close_window(mlx);
+		destroy_window(&game->window);
+		exit(0);
 	}
-	return (0);
 }
 
-int	mouse_move_hook(double xdelta, double ydelta, void *param)
+void	close_hook(void *param)
 {
-	return (0);
-}
-
-int	window_close_hook(void *param)
-{
-	if (param)
-	{
-		mlx_t *mlx;
-
-		mlx = (mlx_t *)param;
-		mlx_close_window(mlx);
-	}
-	return (0);
-}
-
-int	loop_hook(void *param)
-{
-	mlx_t	*mlx;
+	t_game *game;
 	
-	mlx = (mlx_t *)param;
-	(void)mlx;	
-	return (0);
+	game = (t_game *)param;
+	destroy_window(&game->window);
+	exit(0);
+}
+
+void	setup_hooks(t_game *game)
+{
+	mlx_key_hook(game->window.mlx, key_event_handler, game);
+	mlx_close_hook(game->window.mlx, close_hook, game);
 }

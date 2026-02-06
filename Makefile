@@ -13,9 +13,17 @@ CFLAGS = -Wall -Wextra -Werror
 MLXFLAGS = -I$(MLX42_DIR)/include -ldl -lglfw -pthread -lm
 
 SRC = main.c \
-	  init.c \
+		hooks.c \
+		init.c \
+		window.c \
 
-###	  parse_args.c \
+ENGINE_DIR = engine/
+SRC += $(ENGINE_DIR)raycaster.c \
+
+OBJDIR = objects
+
+###	  init.c \
+		parse_args.c \
 	  parse_map.c \
 	  parse_map_utils.c \
 	  parse_textures.c \
@@ -37,8 +45,8 @@ SRC = main.c \
 ###
 
 SRC:= $(addprefix src/, $(SRC))
-
 OBJ = $(SRC:.c=.o)
+OBJ = $(patsubst src/%.c,$(OBJDIR)/%.o,$(SRC))
 
 all: $(NAME)
 
@@ -62,14 +70,15 @@ $(MLX42):
 	@echo "✓ MLX42 compiled."
 
 $(NAME): $(OBJ) $(LIBFT) $(PRINTF) $(MLX42)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT) $(PRINTF) $(MLX42) $(MLXFLAGS)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(PRINTF) $(MLX42) $(MLXFLAGS) -o $(NAME)
 	@echo "✓ $(NAME) compiled successfully."
 
-%.o: %.c
-	$(CC) $(CFLAGS) -I./includes -I$(LIBFT_DIR) -I$(PRINTF_DIR) -I$(MLX42_DIR)/include -c $< -o $@
+$(OBJDIR)/%.o: src/%.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -I./include -I$(LIBFT_DIR) -I$(PRINTF_DIR) -I$(MLX42_DIR)/include -c $< -o $@
 
 clean:
-	@rm -f $(OBJ)
+	@rm -rf $(OBJDIR)
 	@make -C $(LIBFT_DIR) clean
 	@make -C $(PRINTF_DIR) clean
 	@echo "Cleaned object files."
