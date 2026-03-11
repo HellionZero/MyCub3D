@@ -1,19 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycaster.c                                        :+:      :+:    :+:   */
+/*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsarraci <lsarraci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/06 15:41:07 by lsarraci          #+#    #+#             */
-/*   Updated: 2026/03/11 15:14:57 by lsarraci         ###   ########.fr       */
+/*   Created: 2026/03/11 15:02:19 by lsarraci          #+#    #+#             */
+/*   Updated: 2026/03/11 15:02:34 by lsarraci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/cub.h"
+#ifndef PARSER_H
+# define PARSER_H
 
-int	init_raycast(t_game *game)
-{
-	(void)game;
-	return (0);
-}
+#endif

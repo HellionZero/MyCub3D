@@ -19,6 +19,10 @@ SRC = main.c \
 
 ENGINE_DIR = engine/
 SRC += $(ENGINE_DIR)raycaster.c \
+		$(ENGINE_DIR)geometry.c \
+		$(ENGINE_DIR)draw.c \
+		$(ENGINE_DIR)movement.c \
+		$(ENGINE_DIR)sprites.c \
 
 OBJDIR = objects
 

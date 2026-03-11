@@ -6,7 +6,7 @@
 /*   By: lsarraci <lsarraci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 15:29:49 by lsarraci          #+#    #+#             */
-/*   Updated: 2026/02/06 15:37:40 by lsarraci         ###   ########.fr       */
+/*   Updated: 2026/03/11 15:19:10 by lsarraci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,12 @@ int	create_window(t_window *window, int width, int height)
 	return (0);
 }
 
+/*
+	** Once mlx_loop returns we can perform any necessary cleanup.  In our
+	** case the hooks already call destroy_window/exit, so this is mostly
+	** defensive.  Free the game struct to avoid leaks in case tests inspect
+	** after loop.
+	*/
 void	destroy_window(t_window *window)
 {
 	if (window->image)

@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycaster.c                                        :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsarraci <lsarraci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/06 15:41:07 by lsarraci          #+#    #+#             */
-/*   Updated: 2026/03/11 15:14:57 by lsarraci         ###   ########.fr       */
+/*   Created: 2026/03/11 14:59:37 by lsarraci          #+#    #+#             */
+/*   Updated: 2026/03/11 15:43:07 by lsarraci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/cub.h"
+#include "cub.h"
 
-int	init_raycast(t_game *game)
+t_map	*parse_map(const char *filename, t_game *game, char **args)
 {
-	(void)game;
-	return (0);
+	t_map	*map;
+	size_t	i;
+	
+	i = 0;
+	if (args == NULL || args[1] == NULL)
+	{
+		ft_printf("Error: No map file provided\n");
+		return (NULL);
+	}
+	filename = args[1];
+	while (filename[i] != '\0')
+	{
+		
+	}
+	
 }

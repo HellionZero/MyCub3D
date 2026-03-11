@@ -6,7 +6,7 @@
 /*   By: lsarraci <lsarraci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 19:10:26 by lsarraci          #+#    #+#             */
-/*   Updated: 2026/02/06 15:43:10 by lsarraci         ###   ########.fr       */
+/*   Updated: 2026/03/11 15:11:46 by lsarraci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	key_event_handler(mlx_key_data_t keydata, void *param)
 {
-	t_game *game;
+	t_game	*game;
 
 	game = (t_game *)param;
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
@@ -26,8 +26,8 @@ void	key_event_handler(mlx_key_data_t keydata, void *param)
 
 void	close_hook(void *param)
 {
-	t_game *game;
-	
+	t_game	*game;
+
 	game = (t_game *)param;
 	destroy_window(&game->window);
 	exit(0);
