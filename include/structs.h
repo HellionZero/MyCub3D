@@ -6,7 +6,7 @@
 /*   By: lsarraci <lsarraci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 15:04:38 by lsarraci          #+#    #+#             */
-/*   Updated: 2026/03/11 15:44:57 by lsarraci         ###   ########.fr       */
+/*   Updated: 2026/03/11 15:50:29 by lsarraci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ struct s_map
 	int		height;
 	char	**grid;
 };
-
 
 struct s_minimap
 {
