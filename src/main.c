@@ -6,7 +6,7 @@
 /*   By: lsarraci <lsarraci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 19:13:52 by lsarraci          #+#    #+#             */
-/*   Updated: 2026/03/14 18:48:45 by lsarraci         ###   ########.fr       */
+/*   Updated: 2026/03/18 18:32:49 by lsarraci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ int	main(void)
 		free(game);
 		return (1);
 	}
-	init_map(&game->engine.map);
-	init_player(&game->engine.player, &game->engine.map);
 	setup_hooks(game);
 	mlx_loop_hook(game->window.mlx, game_loop, game);
 	mlx_loop(game->window.mlx);

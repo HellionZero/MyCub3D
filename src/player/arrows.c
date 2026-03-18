@@ -6,7 +6,7 @@
 /*   By: lsarraci <lsarraci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 18:27:53 by lsarraci          #+#    #+#             */
-/*   Updated: 2026/03/14 18:36:34 by lsarraci         ###   ########.fr       */
+/*   Updated: 2026/03/18 15:58:34 by lsarraci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ static int	handle_arrow_release(t_player *player, int key)
 	return (0);
 }
 
-int handle_arrow_events(t_player *player, int key, int action)
+int	handle_arrow_events(t_player *player, int key, int action)
 {
 	if (action == MLX_PRESS)
-		return handle_arrow_press(player, key);
+		return (handle_arrow_press(player, key));
 	else if (action == MLX_RELEASE)
-		return handle_arrow_release(player, key);
-	return 0;
+		return (handle_arrow_release(player, key));
+	return (0);
 }
