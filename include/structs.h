@@ -6,7 +6,7 @@
 /*   By: lsarraci <lsarraci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 15:04:38 by lsarraci          #+#    #+#             */
-/*   Updated: 2026/03/11 15:50:29 by lsarraci         ###   ########.fr       */
+/*   Updated: 2026/03/18 19:16:07 by lsarraci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 # define STRUCTS_H
 
 # include "../libs/MLX42/include/MLX42/MLX42.h"
+# include "types.h"
 
 typedef struct s_window		t_window;
+typedef struct s_engine		t_engine;
 typedef struct s_game		t_game;
+typedef struct s_point		t_point;
 typedef struct s_line		t_line;
+typedef struct s_texture	t_texture;
 typedef struct s_minimap	t_minimap;
 typedef struct s_map		t_map;
 typedef struct s_player		t_player;
-typedef struct s_texture	t_texture;
+typedef struct s_movement	t_movement;
 typedef struct s_camera		t_camera;
 typedef struct s_ray		t_ray;
 typedef struct s_color		t_color;
@@ -33,11 +37,59 @@ struct s_window
 	mlx_image_t	*image;
 };
 
-// Add more game-related fields here (e.g., player position, map, etc.)
+struct s_map
+{
+	int	width;
+	int	height;
+	char	**grid;
+};
+
+
+struct s_camera
+{
+	double	x;
+	double	y;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+	double	fov;
+};
+
+struct s_movement
+{
+	int		forward;
+	int		backward;
+	int		left;
+	int		right;
+	int		turn_left;
+	int		turn_right;
+	double	speed;
+	double	rot_speed;
+};
+
+struct s_player
+{
+	t_camera	camera;
+	t_movement	input;
+};
+
+struct s_engine
+{
+	t_map		map;
+	t_player	player;
+};
 
 struct s_game
 {
 	t_window	window;
+	t_engine	engine;
+};
+
+struct s_point
+{
+	int	x;
+	int	y;
 };
 
 struct s_line
@@ -56,18 +108,37 @@ struct s_color
 	uint8_t	a;
 };
 
-struct s_map
+struct s_texture
 {
-	int		width;
-	int		height;
-	char	**grid;
+	mlx_image_t	*image;
+	int			width;
+	int			height;
 };
+
 
 struct s_minimap
 {
 	t_map	*map;
 	int		size;
 	double	scale;
+	int		x_offset;
+	int		y_offset;
+};
+
+struct s_ray
+{
+	double			dir_x;
+	double			dir_y;
+	int				map_x;
+	int				map_y;
+	double			side_dist_x;
+	double			side_dist_y;
+	double			delta_dist_x;
+	double			delta_dist_y;
+	int				step_x;
+	int				step_y;
+	int				hit;
+	t_texture_type	texture_type;
 };
 
 #endif

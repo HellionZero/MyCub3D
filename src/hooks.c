@@ -6,7 +6,7 @@
 /*   By: lsarraci <lsarraci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 19:10:26 by lsarraci          #+#    #+#             */
-/*   Updated: 2026/03/14 18:49:55 by lsarraci         ###   ########.fr       */
+/*   Updated: 2026/03/21 18:20:01 by lsarraci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 static void	key_direction_handler(mlx_key_data_t keydata, t_game *game)
 {
 	if (keydata.action == MLX_PRESS || keydata.action == MLX_RELEASE)
+	{
 		handle_arrow_events(&game->engine.player, keydata.key, keydata.action);
+	}
 }
 
 void	key_event_handler(mlx_key_data_t keydata, void *param)

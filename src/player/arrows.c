@@ -6,7 +6,7 @@
 /*   By: lsarraci <lsarraci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 18:27:53 by lsarraci          #+#    #+#             */
-/*   Updated: 2026/03/18 15:58:34 by lsarraci         ###   ########.fr       */
+/*   Updated: 2026/03/21 18:37:21 by lsarraci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,14 @@ static int	handle_arrow_press(t_player *player, int key)
 		player->input.forward = 1;
 	else if (key == MLX_KEY_DOWN || key == MLX_KEY_S)
 		player->input.backward = 1;
-	else if (key == MLX_KEY_LEFT || key == MLX_KEY_A)
+	else if (key == MLX_KEY_A)
 		player->input.left = 1;
-	else if (key == MLX_KEY_RIGHT || key == MLX_KEY_D)
+	else if (key == MLX_KEY_D)
 		player->input.right = 1;
+	else if (key == MLX_KEY_LEFT)
+		player->input.turn_left = 1;
+	else if (key == MLX_KEY_RIGHT)
+		player->input.turn_right = 1;
 	return (0);
 }
 
@@ -31,10 +35,14 @@ static int	handle_arrow_release(t_player *player, int key)
 		player->input.forward = 0;
 	else if (key == MLX_KEY_DOWN || key == MLX_KEY_S)
 		player->input.backward = 0;
-	else if (key == MLX_KEY_LEFT || key == MLX_KEY_A)
+	else if (key == MLX_KEY_A)
 		player->input.left = 0;
-	else if (key == MLX_KEY_RIGHT || key == MLX_KEY_D)
+	else if (key == MLX_KEY_D)
 		player->input.right = 0;
+	else if (key == MLX_KEY_LEFT)
+		player->input.turn_left = 0;
+	else if (key == MLX_KEY_RIGHT)
+		player->input.turn_right = 0;
 	return (0);
 }
 

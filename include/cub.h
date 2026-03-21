@@ -6,7 +6,7 @@
 /*   By: lsarraci <lsarraci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 19:14:45 by lsarraci          #+#    #+#             */
-/*   Updated: 2026/03/11 15:10:20 by lsarraci         ###   ########.fr       */
+/*   Updated: 2026/03/18 18:34:38 by lsarraci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@
 # include "structs.h"
 # include "raycaster.h"
 # include "parser.h"
+# include "structs.h"
+# include "player.h"
+# include "types.h"
 
 # define WINDOW_WIDTH 800
 # define WINDOW_HEIGHT 600
@@ -41,5 +44,12 @@ void		destroy_window(t_window *window);
 /* ==============  load utilities =============================*/
 
 mlx_image_t	*load_texture(mlx_t *mlx, const char *path);
+
+/* ==============  map loader =============================*/
+
+/* ==============  render functions =============================*/
+
+void	render_frame(t_game *game);
+void	game_loop(void *param);
 
 #endif

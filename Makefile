@@ -2,6 +2,7 @@ NAME = cub3D
 LIBS_DIR = ./libs
 LIBFT_DIR = $(LIBS_DIR)/libft
 PRINTF_DIR = $(LIBS_DIR)/ft_printf
+OBJDIR = objects
 LIBFT = $(LIBFT_DIR)/libft.a
 PRINTF = $(PRINTF_DIR)/libftprintf.a
 MLX42_DIR = $(LIBS_DIR)/MLX42
@@ -24,7 +25,21 @@ SRC += $(ENGINE_DIR)raycaster.c \
 		$(ENGINE_DIR)movement.c \
 		$(ENGINE_DIR)sprites.c \
 
-OBJDIR = objects
+PLAYER_DIR = player/
+SRC += $(PLAYER_DIR)manager.c \
+		$(PLAYER_DIR)state.c \
+		$(PLAYER_DIR)arrows.c \
+###PARSING_DIR = parsing/
+###	SRC += $(PARSING_DIR)parse_args.c \
+		$(PARSING_DIR)parse_map.c \
+		$(PARSING_DIR)parse_map_utils.c \
+		$(PARSING_DIR)parse_textures.c \
+		$(PARSING_DIR)parse_colors.c \
+UTILS_DIR = utils/
+###	SRC += $(UTILS_DIR)utils.c \
+		$(UTILS_DIR)free.c \
+###		$(UTILS_DIR)screenshot.c \
+
 
 ###	  init.c \
 		parse_args.c \
