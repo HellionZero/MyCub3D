@@ -22,5 +22,8 @@ void strafe_left(t_player *player, t_map *map, double step);
 void strafe_right(t_player *player, t_map *map, double step);
 void update_player(t_player *player, t_map *map, double dt);
 void rotate_player(t_player *player, double angle);
+void log_player_input(t_player *player);
+void log_player_state(t_player *player);
+void draw_player_debug(mlx_t *mlx, t_player *player);
 
 #endif

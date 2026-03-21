@@ -6,7 +6,7 @@
 #    By: lsarraci <lsarraci@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/01 13:42:37 by lsarraci          #+#    #+#              #
-#    Updated: 2025/08/14 14:50:44 by lsarraci         ###   ########.fr        #
+#    Updated: 2026/03/21 20:10:57 by lsarraci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,10 @@ SRC = ft_printf.c \
 		ft_printnbr.c \
 		ft_printmod.c \
 		ft_printhex.c \
+		ft_printfloat.c \
+		ft_printfloat_utils.c \
 		ft_printptr.c \
+		ft_printf_utils.c
 
 OBJ = $(SRC:.c=.o)
 

@@ -29,6 +29,7 @@ PLAYER_DIR = player/
 SRC += $(PLAYER_DIR)manager.c \
 		$(PLAYER_DIR)state.c \
 		$(PLAYER_DIR)arrows.c \
+		$(PLAYER_DIR)debug.c
 ###PARSING_DIR = parsing/
 ###	SRC += $(PARSING_DIR)parse_args.c \
 		$(PARSING_DIR)parse_map.c \

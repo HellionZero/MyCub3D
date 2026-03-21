@@ -79,11 +79,6 @@ void	update_player(t_player *player, t_map *map, double dt)
 	move_manager(player, map, dt);
 	rotate_manager(player, dt);
 	strafe_manager(player, map, dt);
-	ft_printf("input:");
-	ft_printf("fw=%d, ", player->input.forward);
-	ft_printf("bk=%d, ", player->input.backward);
-	ft_printf("lt=%d, ", player->input.left);
-	ft_printf("rt=%d, ", player->input.right);
-	ft_printf("tl=%d, ", player->input.turn_left);
-	ft_printf("tr=%d\n", player->input.turn_right);
+	log_player_input(player);
+	log_player_state(player);
 }
