@@ -6,11 +6,11 @@
 /*   By: lsarraci <lsarraci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 19:10:26 by lsarraci          #+#    #+#             */
-/*   Updated: 2026/03/21 18:20:01 by lsarraci         ###   ########.fr       */
+/*   Updated: 2026/03/23 18:04:42 by lsarraci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub.h"
+#include "../../include/cub.h"
 
 static void	key_direction_handler(mlx_key_data_t keydata, t_game *game)
 {

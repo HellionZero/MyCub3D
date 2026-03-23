@@ -6,11 +6,11 @@
 /*   By: lsarraci <lsarraci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 18:15:12 by lsarraci          #+#    #+#             */
-/*   Updated: 2026/03/23 16:19:30 by lsarraci         ###   ########.fr       */
+/*   Updated: 2026/03/23 17:02:45 by lsarraci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub.h"
+#include "../../include/cub.h"
 
 void	render_frame(t_game *game)
 {
@@ -39,6 +39,7 @@ void	game_loop(void *param)
 		dt = 0.0;
 	last_time = now;
 	update_player(&game->engine.player, &game->engine.map, dt);
+	draw_minimap(game->window.mlx, &game->engine.map, &game->engine.player);
 	log_player_input(&game->engine.player);
 	if (dt > 0.05)
 		log_player_state(&game->engine.player);

@@ -14,55 +14,49 @@ CFLAGS = -Wall -Wextra -Werror
 MLXFLAGS = -I$(MLX42_DIR)/include -ldl -lglfw -pthread -lm
 
 SRC = main.c \
-		hooks.c \
-		init.c \
-		window.c \
+window.c \
+
+CORE_DIR = core/
+SRC += $(CORE_DIR)init.c \
+	  $(CORE_DIR)shutdown.c \
+	  $(CORE_DIR)state.c \
+	  $(CORE_DIR)config.c \
+
+DATA_DIR = data/
+SRC += $(DATA_DIR)parser.c \
 
 ENGINE_DIR = engine/
-SRC += $(ENGINE_DIR)raycaster.c \
-		$(ENGINE_DIR)geometry.c \
-		$(ENGINE_DIR)draw.c \
+SRC += $(ENGINE_DIR)geometry.c \
 		$(ENGINE_DIR)movement.c \
-		$(ENGINE_DIR)sprites.c \
+		$(ENGINE_DIR)raycaster.c \
+
+INPUT_DIR = input/
+SRC += $(INPUT_DIR)hooks.c \
+		$(INPUT_DIR)arrows.c \
+		$(INPUT_DIR)mouse.c \
+		$(INPUT_DIR)keys.c \
 
 PLAYER_DIR = player/
-SRC += $(PLAYER_DIR)manager.c \
-		$(PLAYER_DIR)state.c \
-		$(PLAYER_DIR)arrows.c \
-		$(PLAYER_DIR)debug.c
-###PARSING_DIR = parsing/
-###	SRC += $(PARSING_DIR)parse_args.c \
-		$(PARSING_DIR)parse_map.c \
-		$(PARSING_DIR)parse_map_utils.c \
-		$(PARSING_DIR)parse_textures.c \
-		$(PARSING_DIR)parse_colors.c \
-UTILS_DIR = utils/
-###	SRC += $(UTILS_DIR)utils.c \
-		$(UTILS_DIR)free.c \
-###		$(UTILS_DIR)screenshot.c \
+SRC += $(PLAYER_DIR)player.c \
+		$(PLAYER_DIR)manager.c \
 
+RENDER_DIR = render/
+SRC += $(RENDER_DIR)draw.c \
+		$(RENDER_DIR)render.c \
+		$(RENDER_DIR)render_utils.c \
+		$(RENDER_DIR)sprites.c \
+		$(RENDER_DIR)textures.c \
+		$(RENDER_DIR)texture_loader.c \
 
-###	  init.c \
-		parse_args.c \
-	  parse_map.c \
-	  parse_map_utils.c \
-	  parse_textures.c \
-	  parse_colors.c \
-	  utils.c \
-	  free.c \
-	  raycasting.c \
-	  raycasting_utils.c \
-	  movement.c \
-	  draw.c \
-	  draw_utils.c \
-	  minimap.c \
-	  sprites.c \
-	  sprites_utils.c \
-	  game_loop.c \
-	  hooks.c \
-	  screenshot.c 	
+SCENEGRAPH_DIR = scenegraph/
+SRC += $(SCENEGRAPH_DIR)scenegraph.c \
+		$(SCENEGRAPH_DIR)sg_utils.c \
+		$(SCENEGRAPH_DIR)sg_render.c \
+		$(SCENEGRAPH_DIR)sg_update.c \
 
-###
+TOOLS_DIR = tools/
+SRC += $(TOOLS_DIR)debug.c \
+		$(TOOLS_DIR)minimap.c \
 
 SRC:= $(addprefix src/, $(SRC))
 OBJ = $(SRC:.c=.o)

@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   texture_loader.c                                   :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsarraci <lsarraci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/11 15:00:16 by lsarraci          #+#    #+#             */
-/*   Updated: 2026/03/18 18:41:00 by lsarraci         ###   ########.fr       */
+/*   Created: 2026/03/11 14:59:37 by lsarraci          #+#    #+#             */
+/*   Updated: 2026/03/23 18:28:21 by lsarraci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "../../include/cub.h"
 
-mlx_image_t	*load_texture(mlx_t *mlx, const char *path)
+t_map	*parse_map(const char *filename, t_game *game, char **args)
 {
-	mlx_texture_t	*texture;
-	mlx_image_t		*image;
+	t_map	*map;
+	size_t	i;
 
-	texture = mlx_load_png(path);
-	if (!texture)
+	i = 0;
+	if (args == NULL || args[1] == NULL)
 	{
-		ft_printf("Error: Failed to load texture from %s\n", path);
+		ft_printf("Error: No map file provided\n");
 		return (NULL);
 	}
-	image = mlx_texture_to_image(mlx, texture);
-	mlx_delete_texture(texture);
-	if (!image)
+	filename = args[1];
+	map = (t_map *)malloc(sizeof(t_map));
+	if (!map)
 	{
-		ft_printf("Error: Failed to convert texture to image\n");
+		ft_printf("Error: Failed to allocate memory for map structure\n");
 		return (NULL);
 	}
-	return (image);
+	return (map);
 }

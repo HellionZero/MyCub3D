@@ -6,7 +6,7 @@
 /*   By: lsarraci <lsarraci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 19:14:45 by lsarraci          #+#    #+#             */
-/*   Updated: 2026/03/18 18:34:38 by lsarraci         ###   ########.fr       */
+/*   Updated: 2026/03/23 18:07:02 by lsarraci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include "../libs/ft_printf/ft_printf.h"
 # include "../libs/MLX42/include/MLX42/MLX42.h"
 
+# include "scenegraph.h"
 # include "structs.h"
 # include "raycaster.h"
 # include "parser.h"
@@ -46,6 +47,8 @@ void		destroy_window(t_window *window);
 mlx_image_t	*load_texture(mlx_t *mlx, const char *path);
 
 /* ==============  map loader =============================*/
+
+void	draw_minimap(mlx_t *mlx, t_map *map, t_player *player);
 
 /* ==============  render functions =============================*/
 

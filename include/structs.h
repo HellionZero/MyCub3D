@@ -6,7 +6,7 @@
 /*   By: lsarraci <lsarraci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 15:04:38 by lsarraci          #+#    #+#             */
-/*   Updated: 2026/03/18 19:16:07 by lsarraci         ###   ########.fr       */
+/*   Updated: 2026/03/23 18:27:52 by lsarraci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,28 @@
 # include "../libs/MLX42/include/MLX42/MLX42.h"
 # include "types.h"
 
+/* ---------- Structure definitions ----------*/
+
+/* MAIN STRUCTS	*/
 typedef struct s_window		t_window;
 typedef struct s_engine		t_engine;
 typedef struct s_game		t_game;
-typedef struct s_point		t_point;
+
+/* NODE STRUCTS	*/
+typedef struct s_transform	t_transform;
+typedef struct s_scenenode	t_scenenode;
+typedef struct s_mapnode	t_mapnode;
+
+/* DRAW STRUCTS	*/
+typedef struct s_pointf		t_pointf;
 typedef struct s_line		t_line;
 typedef struct s_texture	t_texture;
+
+/* MAP STRUCTS	*/
 typedef struct s_minimap	t_minimap;
 typedef struct s_map		t_map;
+
+/* RAYCASTING STRUCTS	*/
 typedef struct s_player		t_player;
 typedef struct s_movement	t_movement;
 typedef struct s_camera		t_camera;
@@ -37,13 +51,26 @@ struct s_window
 	mlx_image_t	*image;
 };
 
-struct s_map
+struct s_transform
 {
-	int	width;
-	int	height;
-	char	**grid;
+	t_pointf	*position;
+	double		rotation;
+	double		scale;
 };
 
+struct s_scenenode
+{
+	t_node_type			type;
+	void				*data;
+	struct s_scenenode	*left_child;
+	struct s_scenenode	*right_child;
+};
+
+struct s_map
+{
+	char	*cells;
+	int		is_wall;
+};
 
 struct s_camera
 {
@@ -86,10 +113,10 @@ struct s_game
 	t_engine	engine;
 };
 
-struct s_point
+struct s_pointf
 {
-	int	x;
-	int	y;
+	double	x;
+	double	y;
 };
 
 struct s_line
