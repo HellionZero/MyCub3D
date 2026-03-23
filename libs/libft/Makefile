@@ -6,7 +6,7 @@
 #    By: lsarraci <lsarraci@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/12 17:38:39 by lsarraci          #+#    #+#              #
-#    Updated: 2026/01/26 14:17:45 by lsarraci         ###   ########.fr        #
+#    Updated: 2026/03/23 16:35:46 by lsarraci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,13 +79,17 @@ $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@ > /dev/null
 
 clean:
-	$(RF) $(OBJ)
+	@echo "Cleaning object files..."
+	@$(RF) $(OBJ) > /dev/null
+	@echo "Object files cleaned."
 
 fclean: clean
-	$(RF) $(NAME)
+	@echo "Cleaning library..."
+	@$(RF) $(NAME) > /dev/null
+	@echo "Library $(NAME) cleaned."
 
 re: fclean all
 

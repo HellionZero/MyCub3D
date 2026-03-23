@@ -6,7 +6,7 @@
 /*   By: lsarraci <lsarraci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 18:15:12 by lsarraci          #+#    #+#             */
-/*   Updated: 2026/03/21 17:35:11 by lsarraci         ###   ########.fr       */
+/*   Updated: 2026/03/23 16:19:30 by lsarraci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,8 @@ void	game_loop(void *param)
 		dt = 0.0;
 	last_time = now;
 	update_player(&game->engine.player, &game->engine.map, dt);
+	log_player_input(&game->engine.player);
+	if (dt > 0.05)
+		log_player_state(&game->engine.player);
 	render_frame(game);
 }

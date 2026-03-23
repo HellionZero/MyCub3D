@@ -71,11 +71,13 @@ OBJ = $(patsubst src/%.c,$(OBJDIR)/%.o,$(SRC))
 all: $(NAME)
 
 $(LIBFT):
-	@make -C $(LIBFT_DIR)
+	@echo "Compiling Libft..."
+	@make -C $(LIBFT_DIR) > /dev/null
 	@echo "Libft compiled."
 
 $(PRINTF):
-	@make -C $(PRINTF_DIR)
+	@echo "Compiling ft_printf..."
+	@make -C $(PRINTF_DIR) > /dev/null
 	@echo "ft_printf compiled."
 
 $(MLX42):
@@ -90,12 +92,14 @@ $(MLX42):
 	@echo "✓ MLX42 compiled."
 
 $(NAME): $(OBJ) $(LIBFT) $(PRINTF) $(MLX42)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(PRINTF) $(MLX42) $(MLXFLAGS) -o $(NAME)
+	@echo "Linking $(NAME)..."
+	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(PRINTF) $(MLX42) $(MLXFLAGS) -o $(NAME) > /dev/null
 	@echo "✓ $(NAME) compiled successfully."
 
 $(OBJDIR)/%.o: src/%.c
+	@echo "Compiling $<..."
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -I./include -I$(LIBFT_DIR) -I$(PRINTF_DIR) -I$(MLX42_DIR)/include -c $< -o $@
+	@$(CC) $(CFLAGS) -I./include -I$(LIBFT_DIR) -I$(PRINTF_DIR) -I$(MLX42_DIR)/include -c $< -o $@ > /dev/null
 
 clean:
 	@rm -rf $(OBJDIR)

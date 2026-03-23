@@ -6,7 +6,7 @@
 #    By: lsarraci <lsarraci@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/01 13:42:37 by lsarraci          #+#    #+#              #
-#    Updated: 2026/03/21 20:10:57 by lsarraci         ###   ########.fr        #
+#    Updated: 2026/03/23 16:37:09 by lsarraci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,10 +41,14 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RF) $(OBJ)
+	@echo "Cleaning objects..."
+	@$(RF) $(OBJ) > /dev/null
+	@echo "Objects cleaned."
 
 fclean: clean
-	$(RF) $(NAME)
+	@echo "Cleaning library..."
+	@$(RF) $(NAME) > /dev/null
+	@echo "Library $(NAME) cleaned."
 
 re: fclean all
 
